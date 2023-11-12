@@ -8,7 +8,7 @@ import os
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
-api_key = 'CSN2A7N7S7RYZF47'
+api_key = os.getenv('api_key')
 alpha_vantage_endpoint = 'https://www.alphavantage.co/query'
 
 # PostgreSQL database connection
