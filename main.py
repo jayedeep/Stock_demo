@@ -3,6 +3,7 @@ import requests
 import psycopg2
 import json
 from flask_cors import CORS  # Import CORS from flask_cors
+import os
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
@@ -12,10 +13,10 @@ alpha_vantage_endpoint = 'https://www.alphavantage.co/query'
 
 # PostgreSQL database connection
 conn = psycopg2.connect(
-    host='localhost',
-    database='stock_dn',
-    user='postgres',
-    password='jay99796'
+    host=os.getenv('host'),
+    database=os.getenv('database'),
+    user=os.getenv('user'),
+    password=os.getenv('password')
 )
 cursor = conn.cursor()
 
